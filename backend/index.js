@@ -2,8 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+const router = require("./routes/route");
 
+app.use(cors());
 app.use(express.json());
+app.use("/data", router);
 
 mongoose
   .connect("mongodb://localhost:27017")
